@@ -1,19 +1,22 @@
 class Player
   def hand
     p '数字を入力してください'
-    player_hand = gets.to_i
-    #if ((player_hand == 0) || (player_hand == 1) || (player_hand == 2))
-    #  print ("ok")
-    #end
+    player_hand = gets.chomp
 
-    until ((player_hand == 0) || (player_hand == 1) || (player_hand == 2))
+    until ((player_hand == 0.to_s) || (player_hand == 1.to_s) || (player_hand == 2.to_s))
       print("0~2の数字を入力してください\n")
-      player_hand = gets.to_i
+      player_hand = gets.chomp
     end
 
+  if(player_hand == 0.to_s)
+    p 'Player:グー'
+  elsif(player_hand == 1.to_s)
+    p 'Player:チョキ'
+  else
+    p 'Player:パー'
+  end
 
-   print("\n Player: #{player_hand}")
-    return player_hand
+    return player_hand.to_i
     # コンソールを入力待ち状態にし、プレイヤーがコンソールから打ち込んだ値を出力する処理のメソッドの処理をこの中に作成する
   end
 end
@@ -22,7 +25,15 @@ class Enemy
   def hand
     # グー、チョキ、パーの値をランダムに出力するメソッドの処理をこの中に作成する
     enemy_hand = rand(0..2)
-    print("\n Enemy: #{enemy_hand}")
+
+    if(enemy_hand == 0)
+      p 'Enemy:グー'
+    elsif(enemy_hand == 1)
+      p 'Enemy:チョキ'
+    else
+      p 'Enemy:パー'
+    end
+
     return enemy_hand
   end
 end
