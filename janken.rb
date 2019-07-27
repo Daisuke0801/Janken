@@ -1,6 +1,10 @@
 class Player
   def hand
     p '数字を入力してください'
+    p '0:グー'
+    p '1:チョキ'
+    p '2:パー'
+
     player_hand = gets.chomp
 
     until ((player_hand == 0.to_s) || (player_hand == 1.to_s) || (player_hand == 2.to_s))
